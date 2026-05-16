@@ -31,8 +31,7 @@ export const navItems = [
   { href: "/custom-gis", label: "Custom Gis" },
   { href: "/rashguards", label: "Rashguards" },
   { href: "/fight-shorts", label: "Fight Shorts" },
-  { href: "/academy-program", label: "Academy" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/academy-program", label: "Academy Program" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -86,24 +85,20 @@ export const products = [
 
 export const processSteps = [
   {
-    title: "Brand Intake",
-    text: "Share your academy logo, target products, colors, quantities, and launch timeline.",
+    title: "Send your logo and idea",
+    text: "Share your academy identity, reference products, quantities, colors, and launch timeline.",
   },
   {
-    title: "Design Direction",
-    text: "We align artwork, placements, trims, and material choices before sampling or bulk production.",
+    title: "Approve custom mockup",
+    text: "We refine artwork, placements, trims, and material direction until the product feels ready.",
   },
   {
-    title: "Sample Approval",
-    text: "Review fit, artwork, stitching, labels, and finishing details before scaling the order.",
+    title: "Production begins",
+    text: "Cutting, print, embroidery, stitching, quality checks, trims, and packing move into production.",
   },
   {
-    title: "Manufacturing",
-    text: "Production is managed through cutting, print, embroidery, stitching, QC, packing, and dispatch.",
-  },
-  {
-    title: "Worldwide Shipping",
-    text: "Orders are packed for academies, brands, and coaches with shipping support for global delivery.",
+    title: "Worldwide delivery",
+    text: "Finished gear is packed and dispatched for academies, gyms, and private labels across markets.",
   },
 ];
 

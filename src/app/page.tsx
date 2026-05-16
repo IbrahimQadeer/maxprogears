@@ -1,11 +1,10 @@
 import { Metadata } from "next";
 import { HomeHero } from "@/sections/Hero";
 import { ProductShowcase } from "@/sections/ProductShowcase";
-import { BrandPositioning } from "@/sections/BrandPositioning";
-import { Capabilities } from "@/sections/Capabilities";
+import { WhyMaxprogears } from "@/sections/WhyMaxprogears";
 import { Process } from "@/sections/Process";
-import { GalleryPreview } from "@/sections/GalleryPreview";
-import { Testimonials } from "@/sections/Testimonials";
+import { AcademyProgramFeature } from "@/sections/AcademyProgramFeature";
+import { SocialProof } from "@/sections/SocialProof";
 import { CTA } from "@/sections/CTA";
 
 export const metadata: Metadata = {
@@ -19,11 +18,10 @@ export default function Home() {
     <main>
       <HomeHero />
       <ProductShowcase />
-      <BrandPositioning />
-      <Capabilities />
+      <WhyMaxprogears />
       <Process />
-      <GalleryPreview />
-      <Testimonials />
+      <AcademyProgramFeature />
+      <SocialProof />
       <CTA />
     </main>
   );
