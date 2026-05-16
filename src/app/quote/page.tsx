@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { QuoteForm } from "@/components/ui/QuoteForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { brand } from "@/lib/site";
+import { MoqSection } from "@/sections/MoqSection";
 
 export const metadata: Metadata = {
   title: "Request a Quote",
@@ -41,6 +42,7 @@ export default function QuotePage() {
           </Reveal>
         </div>
       </section>
+      <MoqSection theme="dark" compact />
     </main>
   );
 }

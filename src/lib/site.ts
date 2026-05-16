@@ -130,3 +130,21 @@ export const productOptions = [
   "Academy Apparel",
   "Private Label Manufacturing",
 ];
+
+export const moqRanges = [
+  {
+    product: "BJJ Gis",
+    moq: "20-25 pcs",
+    note: "Custom embroidery, labels, academy colorways, adult and kids sizing.",
+  },
+  {
+    product: "Rashguards",
+    moq: "30-35 pcs",
+    note: "Full sublimation, ranked sets, long sleeve and short sleeve options.",
+  },
+  {
+    product: "Fight Shorts",
+    moq: "30-35 pcs",
+    note: "MMA and grappling cuts with custom artwork and private label trims.",
+  },
+];

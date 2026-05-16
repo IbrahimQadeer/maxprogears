@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { CTA } from "@/sections/CTA";
+import { MoqSection } from "@/sections/MoqSection";
 import { products } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -66,6 +67,7 @@ export default function ProductsPage() {
           ))}
         </div>
       </section>
+      <MoqSection />
       <CTA />
     </main>
   );

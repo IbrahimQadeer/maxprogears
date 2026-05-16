@@ -7,20 +7,26 @@ type FormState = {
   name: string;
   email: string;
   whatsapp: string;
+  country: string;
   academy: string;
   product: string;
   quantity: string;
+  deadline: string;
   message: string;
+  fileName: string;
 };
 
 const initialState: FormState = {
   name: "",
   email: "",
   whatsapp: "",
+  country: "",
   academy: "",
   product: productOptions[0],
   quantity: "",
+  deadline: "",
   message: "",
+  fileName: "",
 };
 
 export function QuoteForm() {
@@ -32,12 +38,14 @@ export function QuoteForm() {
     if (!form.name.trim()) next.name = "Name is required";
     if (!/^\S+@\S+\.\S+$/.test(form.email)) next.email = "Valid email is required";
     if (!form.whatsapp.trim()) next.whatsapp = "WhatsApp number is required";
+    if (!form.country.trim()) next.country = "Country is required";
+    if (!form.academy.trim()) next.academy = "Academy or brand name is required";
     if (!form.quantity.trim()) next.quantity = "Quantity is required";
     return next;
   }, [form]);
 
   const message = encodeURIComponent(
-    `Quote request from ${form.name}\nEmail: ${form.email}\nWhatsApp: ${form.whatsapp}\nAcademy/Brand: ${form.academy}\nProduct: ${form.product}\nQuantity: ${form.quantity}\nDetails: ${form.message}`,
+    `Quote request from ${form.name}\nEmail: ${form.email}\nWhatsApp: ${form.whatsapp}\nCountry: ${form.country}\nAcademy/Brand: ${form.academy}\nProduct: ${form.product}\nQuantity: ${form.quantity}\nDeadline: ${form.deadline || "Not specified"}\nArtwork/File: ${form.fileName || "Not attached"}\nDetails: ${form.message}`,
   );
   const mailto = `mailto:${brand.email}?subject=MAXPROGEARS Quote Request&body=${message}`;
   const whatsapp = `${brand.whatsappHref}?text=${message}`;
@@ -66,10 +74,13 @@ export function QuoteForm() {
         <Field label="WhatsApp" error={submitted ? errors.whatsapp : undefined}>
           <input value={form.whatsapp} onChange={(event) => update("whatsapp", event.target.value)} placeholder="+1 555 000 0000" />
         </Field>
-        <Field label="Academy / Brand">
+        <Field label="Country" error={submitted ? errors.country : undefined}>
+          <input value={form.country} onChange={(event) => update("country", event.target.value)} placeholder="Shipping country" />
+        </Field>
+        <Field label="Academy Name" error={submitted ? errors.academy : undefined}>
           <input value={form.academy} onChange={(event) => update("academy", event.target.value)} placeholder="Gym or brand name" />
         </Field>
-        <Field label="Product">
+        <Field label="Product Type">
           <select value={form.product} onChange={(event) => update("product", event.target.value)}>
             {productOptions.map((option) => (
               <option key={option}>{option}</option>
@@ -79,9 +90,32 @@ export function QuoteForm() {
         <Field label="Quantity" error={submitted ? errors.quantity : undefined}>
           <input value={form.quantity} onChange={(event) => update("quantity", event.target.value)} placeholder="Example: 50 pcs" />
         </Field>
-        <Field label="Project Details" className="md:col-span-2">
-          <textarea value={form.message} onChange={(event) => update("message", event.target.value)} placeholder="Tell us about colors, sizes, logo placements, deadline, and shipping country." />
+        <Field label="Deadline">
+          <input value={form.deadline} onChange={(event) => update("deadline", event.target.value)} placeholder="Example: September drop" />
         </Field>
+        <Field label="Project Details" className="md:col-span-2">
+          <textarea value={form.message} onChange={(event) => update("message", event.target.value)} placeholder="Tell us about colors, sizes, logo placements, fabrics, labels, packaging, and artwork direction." />
+        </Field>
+        <div className="md:col-span-2">
+          <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+            File Upload
+          </span>
+          <label className="flex min-h-36 cursor-pointer flex-col items-center justify-center rounded-[24px] border border-dashed border-white/20 bg-black p-6 text-center transition hover:border-white/45 hover:bg-white/5">
+            <input
+              type="file"
+              className="sr-only"
+              accept=".ai,.pdf,.eps,.svg,.png,.jpg,.jpeg,.zip"
+              onChange={(event) => update("fileName", event.target.files?.[0]?.name ?? "")}
+            />
+            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
+              {form.fileName || "Upload logo, mockup, or artwork"}
+            </span>
+            <span className="mt-3 max-w-md text-sm leading-6 text-zinc-500">
+              The form records the file name for your inquiry. Email clients may
+              require attaching the file manually after the message opens.
+            </span>
+          </label>
+        </div>
       </div>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row">
         <button type="submit" className="min-h-13 rounded-full bg-white px-7 text-sm font-semibold uppercase tracking-[0.16em] text-black transition hover:bg-zinc-200">

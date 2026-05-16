@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { HomeHero } from "@/sections/Hero";
 import { ProductShowcase } from "@/sections/ProductShowcase";
+import { MoqSection } from "@/sections/MoqSection";
 import { WhyMaxprogears } from "@/sections/WhyMaxprogears";
 import { Process } from "@/sections/Process";
 import { AcademyProgramFeature } from "@/sections/AcademyProgramFeature";
@@ -18,6 +19,7 @@ export default function Home() {
     <main>
       <HomeHero />
       <ProductShowcase />
+      <MoqSection />
       <WhyMaxprogears />
       <Process />
       <AcademyProgramFeature />
@@ -26,3 +28,4 @@ export default function Home() {
     </main>
   );
 }
+
